@@ -28,5 +28,11 @@
        description="Makes viewlets ESIable"
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
+    
+    <adapter
+        factory = ".traverser.ViewletNamespace"
+        name = "viewlet"    
+        trusted = "true"
+        />
 
 </configure>
