@@ -1,10 +1,10 @@
-<tal:viewlets repeat="viewlet viewlets">
+<tal:viewlets repeat="viewlet python:options['viewlets']">
     <tal:isESI condition="python:view.isESI(viewlet)">
-        <div style="border:10px solid cyan;" tal:content="viewlet/render" />
+        <div style="border:10px solid cyan;" tal:content="structure viewlet/render" />
     </tal:isESI>
 
-    <tal:isntESI condition="not python:view.isESI(viewlet)">
-        <div tal:replace="viewlet/render" />
+    <tal:isntESI condition="python:not view.isESI(viewlet)">
+        <div tal:replace="structure viewlet/render" />
     </tal:isntESI>
   
 </tal:viewlets>

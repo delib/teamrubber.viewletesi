@@ -13,6 +13,14 @@
         layer="teamrubber.viewletesi.interfaces.IESIViewletsPlease"
         />
 
+    <browser:viewletManager
+        name="plone.portalheader"
+        provides="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        permission="zope2.View"
+        class=".viewletmanager.ESIOrderedViewletManager"
+        layer="teamrubber.viewletesi.interfaces.IESIViewletsPlease"
+        />
+
     <genericsetup:registerProfile
        name="default"
        title="ESI of viewlets"
