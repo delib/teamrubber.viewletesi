@@ -1,3 +1,4 @@
+from zope.component import adapts
 from zope.interface import implements, Interface
 from zope.app.traversing.interfaces import ITraverser
 from zope.traversing.interfaces import ITraversable
@@ -15,4 +16,7 @@ class ViewletNamespace(object):
         self.request = request
        
     def traverse(self, name, more):
-        import pdb; pdb.set_trace( )
+        # Broken
+        viewletmanager = getMultiAdapter((self.context, self.request), IViewletManager, name=u"plone.portaltop")
+        viewlet = getMultiAdapter((self.context, self.request, self, viewletmanager), Interface, name=name)
+        return viewlet.render()
