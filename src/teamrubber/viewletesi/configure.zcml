@@ -1,12 +1,13 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:browser="http://namespaces.zope.org/browser">
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
     
     <include package="plone.app.registry" />
 
     <browser:viewletManager
         name="plone.htmlhead"
-        provides=".interfaces.IHtmlHead"
+        provides="plone.app.layout.viewlets.interfaces.IHtmlHead"
         permission="zope2.View"
         class=".viewletmanager.ESIOrderedViewletManager"
         layer="teamrubber.viewletesi.interfaces.IESIViewletsPlease"
