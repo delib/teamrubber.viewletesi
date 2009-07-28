@@ -1,0 +1,3 @@
+<tal:viewlets repeat="viewlet viewlets">
+  <div style="border:10px solid cyan;" tal:content="viewlet/render" />
+</tal:viewlets>

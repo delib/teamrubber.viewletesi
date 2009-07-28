@@ -1,0 +1,23 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+    
+    <include package="plone.app.registry" />
+
+    <browser:viewletManager
+        name="plone.htmlhead"
+        provides=".interfaces.IHtmlHead"
+        permission="zope2.View"
+        class=".viewletmanager.ESIOrderedViewletManager"
+        layer="teamrubber.viewletesi.interfaces.IESIViewletsPlease"
+        />
+
+    <genericsetup:registerProfile
+       name="default"
+       title="ESI of viewlets"
+       directory="profiles/default"
+       description="Makes viewlets ESIable"
+       provides="Products.GenericSetup.interfaces.EXTENSION"
+       />
+
+</configure>
