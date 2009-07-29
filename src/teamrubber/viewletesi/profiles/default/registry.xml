@@ -1,0 +1,8 @@
+<registry>
+  <record name="esi_viewlets_enabled">
+    <field type="plone.registry.field.Bool">
+        <title>Enabled Viewlet ESI</title>
+    </field>
+    <value>True</value>
+  </record>
+</registry>
