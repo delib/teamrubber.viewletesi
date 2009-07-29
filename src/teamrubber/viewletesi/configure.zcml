@@ -5,21 +5,26 @@
     
     <include package="plone.app.registry" />
 
+
+    <!--
+        Examples for making esi able
+        
     <browser:viewletManager
-        name="plone.htmlhead"
-        provides="plone.app.layout.viewlets.interfaces.IHtmlHead"
+        name="plone.portaltop"
+        provides="plone.app.layout.viewlets.interfaces.IPortalTop"
         permission="zope2.View"
         class=".viewletmanager.ESIOrderedViewletManager"
         layer="teamrubber.viewletesi.interfaces.IESIViewletsPlease"
         />
 
     <browser:viewletManager
-        name="plone.portalheader"
-        provides="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        name="plone.belowcontentbody"
+        provides="plone.app.layout.viewlets.interfaces.IBelowContentBody"
         permission="zope2.View"
         class=".viewletmanager.ESIOrderedViewletManager"
         layer="teamrubber.viewletesi.interfaces.IESIViewletsPlease"
         />
+    -->
 
     <genericsetup:registerProfile
        name="default"

@@ -10,6 +10,7 @@ class ESIOrderedViewletManager(OrderedViewletManager):
 
     def isESI(self, viewlet):
         identifier = viewlet.__class__.__module__ + viewlet.__class__.__name__
+        return True
         try:
             registry = self.context.portal_registry
         except:

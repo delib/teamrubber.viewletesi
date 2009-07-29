@@ -8,6 +8,4 @@ class ESIViewlet(BrowserView):
 
     def __call__(self):
         self.viewlet.update()
-        import pdb
-        pdb.set_trace()
         return self.viewlet.render()
