@@ -9,12 +9,16 @@ class ESIOrderedViewletManager(OrderedViewletManager):
         return template(viewlets=self.viewlets)
 
     def isESI(self, viewlet):
-        identifier = viewlet.__class__.__module__ + viewlet.__class__.__name__
-        return True
+        identifier = "%s:%s" % (self.__name__,viewlet.__name__)
         try:
             registry = self.context.portal_registry
         except:
             return False
         else:
-            pass # XXX TODO
-    
+            esi_enabled = registry.get('esi_viewlets_enabled',False)
+            if esi_enabled:
+                esi_viewlets = registry.get('esi_viewlets')
+                if identifier in esi_viewlets:
+                    return True
+            return False
+        
