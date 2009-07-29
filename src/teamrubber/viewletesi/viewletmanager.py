@@ -8,8 +8,18 @@ class ESIOrderedViewletManager(OrderedViewletManager):
         template = ESIOrderedViewletManager.template.__of__(self.context)
         return template(viewlets=self.viewlets)
 
+    def getViewletIdentifier(self,viewlet):
+        return  "%s:%s" % (self.__name__,viewlet.__name__)
+
+
+    def getESIPath(self,viewlet):
+        identifier = self.getViewletIdentifier(viewlet)
+        url = "%s/++viewlet++%s" % (self.context.absolute_url(),identifier)
+        return url
+        
+
     def isESI(self, viewlet):
-        identifier = "%s:%s" % (self.__name__,viewlet.__name__)
+        identifier = self.getViewletIdentifier(viewlet)
         try:
             registry = self.context.portal_registry
         except:

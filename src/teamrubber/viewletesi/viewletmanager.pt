@@ -1,6 +1,6 @@
 <tal:viewlets repeat="viewlet python:options['viewlets']">
     <tal:isESI condition="python:view.isESI(viewlet)">
-        <div style="border:10px solid cyan;" tal:content="structure viewlet/render" />
+        <esi:include tal:attributes="href python:view.getESIPath(viewlet)" />
     </tal:isESI>
 
     <tal:isntESI condition="python:not view.isESI(viewlet)">
