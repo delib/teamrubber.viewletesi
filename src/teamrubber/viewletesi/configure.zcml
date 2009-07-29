@@ -13,7 +13,7 @@
         name="plone.portaltop"
         provides="plone.app.layout.viewlets.interfaces.IPortalTop"
         permission="zope2.View"
-        class=".viewletmanager.ESIOrderedViewletManager"
+        class="teamrubber.viewletesi.viewletmanager.ESIOrderedViewletManager"
         layer="teamrubber.viewletesi.interfaces.IESIViewletsPlease"
         />
 
@@ -21,7 +21,7 @@
         name="plone.belowcontentbody"
         provides="plone.app.layout.viewlets.interfaces.IBelowContentBody"
         permission="zope2.View"
-        class=".viewletmanager.ESIOrderedViewletManager"
+        class="teamrubber.viewletesi.viewletmanager.ESIOrderedViewletManager"
         layer="teamrubber.viewletesi.interfaces.IESIViewletsPlease"
         />
     -->
