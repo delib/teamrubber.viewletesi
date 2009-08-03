@@ -1,6 +1,6 @@
 <tal:viewlets repeat="viewlet python:options['viewlets']">
     <tal:isESI condition="python:view.isESI(viewlet)">
-        <esi:include tal:attributes="src python:view.getESIPath(viewlet) + '?deliv_notheme" />
+        <esi:include tal:attributes="src python:view.getESIPath(viewlet)" />
     </tal:isESI>
 
     <tal:isntESI condition="python:not view.isESI(viewlet)">
