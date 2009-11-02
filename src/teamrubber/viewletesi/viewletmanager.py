@@ -9,6 +9,9 @@ class ESIOrderedViewletManager(OrderedViewletManager):
         return template(viewlets=self.viewlets)
 
     def getViewletIdentifier(self,viewlet):
+        if not viewlet.__name__ and hasattr(viewlet,'addTags'):
+            return "%s:opsuite.tagging.viewlet" % (self.__name__)
+            
         return  "%s:%s" % (self.__name__,viewlet.__name__)
 
 
