@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0.2-deliverance'
+version = '1.0.3-deliverance'
 
 setup(name='teamrubber.viewletesi',
       version=version,
