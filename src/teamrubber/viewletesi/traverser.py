@@ -6,7 +6,7 @@ from zope.component import getMultiAdapter
 from zope.viewlet.interfaces import IViewletManager
 from zope.viewlet.interfaces import IViewlet
 from utils import FakeView
-from AccessControl.SecurityManagement import newSecurityManager
+from AccessControl.SecurityManagement import newSecurityManager, getSecurityManager, setSecurityManager
 from Products.CMFCore.utils import getToolByName
 
 _marker = object()
@@ -25,10 +25,9 @@ class ViewletNamespace(object):
         manager = getMultiAdapter((self.context, self.request, view), IViewletManager, name=manager_name)
         viewlet = getMultiAdapter((self.context, self.request, view, manager), IViewlet, name=viewlet_name)
         super_user = getToolByName(self.context,'portal_url').getWrappedOwner()
-        authenticated_user = self.request.get('AUTHENTICATED_USER')
+        old_security_manager = getSecurityManager()
         newSecurityManager(self.request,super_user)
         view = self.context.restrictedTraverse('viewlet_renderer')
         view.setViewlet(viewlet)
-        newSecurityManager(self.request,authenticated_user)
+        setSecurityManager(old_security_manager)
         return view
-        
