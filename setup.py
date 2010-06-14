@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0'
+version = '2.0'
 
 setup(name='teamrubber.viewletesi',
       version=version,
@@ -26,9 +26,11 @@ setup(name='teamrubber.viewletesi',
       install_requires=[
           'setuptools',
           'collective.testcaselayer',
+          'chameleon.zpt',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
-      # -*- Entry points: -*-
+      [paste.filter_factory]
+      esi = teamrubber.viewletesi.middleware:ESIMiddlewareFactory
       """,
       )
