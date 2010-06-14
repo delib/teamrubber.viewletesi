@@ -44,6 +44,9 @@ class ESIOrderedViewletManager(OrderedViewletManager):
         return url
 
 
+    # Note that this gets called a up to three times per viewlet, so is
+    # probably worth caching, although it's still a fraction of the speed
+    # of actually rendering the viewlet.
     def isESI(self, viewlet):
         identifier = self.getViewletIdentifier(viewlet)
         try:
