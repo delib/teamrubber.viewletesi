@@ -17,11 +17,12 @@ class ESIMiddleware(object):
             template_ids = os.listdir(template_path)
             for template_id in template_ids:
                 filename = os.path.join(template_path,template_id)
-                template = PageTemplateFile(filename)
+                if os.path.isfile(filename):
+                    template = PageTemplateFile(filename)
 
-                if template_id.endswith('.pt'):
-                    template_id = template_id[:-3]
-                self.templates[template_id] = template
+                    if template_id.endswith('.pt'):
+                        template_id = template_id[:-3]
+                    self.templates[template_id] = template
     
     def __call__(self,environ,start_response):
         if "HTTP_X_ESI_DISABLE" in environ and 'i_might_be_a_moderator' not in environ.get("HTTP_COOKIE",""):
