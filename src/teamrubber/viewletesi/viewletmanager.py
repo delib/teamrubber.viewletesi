@@ -7,8 +7,7 @@ class ESIOrderedViewletManager(OrderedViewletManager):
     template = ViewPageTemplateFile("viewletmanager.pt")
 
     def render(self):
-        template = ESIOrderedViewletManager.template.__of__(self.context)
-        return template(viewlets=self.viewlets)
+        return self.template(viewlets=self.viewlets)
 
     def update(self):
         """See zope.contentprovider.interfaces.IContentProvider"""
